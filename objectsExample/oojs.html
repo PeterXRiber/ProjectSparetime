@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+    <script>
+
+const person = {
+  name: {
+    first: "Bob",
+    last: "Smith",
+  },
+  age: 32,
+  bio() {
+    console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+  },
+  introduceSelf: function () {
+    console.log(`Hi! I'm ${this.name[0]}.`);
+  },
+};
+const myDataName = "height";
+const myDataValue = "1.75m";
+person[myDataName] = myDataValue;
+
+function logProperty(propertyName) {
+  console.log(person[propertyName]);
+}
+
+function Person(name) {
+  this.name = name;
+  this.introduceSelf = function () {
+    console.log(`Hi! I'm ${this.name}.`);
+  };
+}
+
+function addOne(num) {
+  return num + 1 ;
+}
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+function sumOfTripledEvens(array) {
+  array = [1,2,3,4,5,6];
+  return array
+  // array gets filtered, the number checks if the value is even
+    .filter((num) => num % 2 === 0)
+  // array gets mapped, the number gets tripled. 
+    .map((num) => num * 3)
+  // applies the callback function to add the accumulated result + 
+  // the current / latest iteration
+    .reduce((acc, curr) => acc + curr);
+}
+
+/*
+function sumOfTripleEvens(array) {
+  const arr = [1,2,3,4,5];
+  const evenArr = arr.filter(isEven);
+  const evenMappedArr = evenArr.map((arr) => array[i] * 3)
+  console.log(evenMappedArr);
+}
+*/
+
+/*
+const arr = [1, 2, 3, 4, 5];
+const mappedArr = arr.map(addOne);
+console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
+*/
+
+
+/*
+const arr = [1, 2, 3, 4, 5];
+const oddNums = arr.filter(isOdd);
+console.log(oddNums);
+*/
+/*
+const arr = [1, 2, 3, 4, 5];
+const productOfAllNums = arr.reduce((total, currentItem) => {
+  return total * currentItem;
+}, 1);
+console.log(productOfAllNums);
+*/
+
+    </script>
+  </body>
+
+</html>
