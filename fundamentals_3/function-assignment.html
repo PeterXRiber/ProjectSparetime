@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+
+    // Your JavaScript goes here!
+
+    function add7 (number) {
+        return number+7
+    }
+
+    function multiply (a,b) {
+      return a * b;
+    }
+
+    function capitalize (string) {
+     let lowerCaseString = string.toLowerCase();
+     return lowerCaseString.replace(lowerCaseString.charAt(0), lowerCaseString.charAt(0).toUpperCase());
+    }
+
+    function lastLetter (string) {
+      let lastIndexOfString = string.charAt(string.length -1);
+      return lastIndexOfString;
+    }
+
+    // console output
+
+    console.log(add7(5));
+    console.log(multiply(5,5));
+    console.log(capitalize("strINg"));
+    console.log(lastLetter("abcdswdwdwP"));
+
+
+
+  </script>
+</body>
+</html>
