@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+  
+
+  <button id="rock"> Rock </button>
+  <button id="paper"> Paper  </button>
+  <button id="scissors"> Scissors  </button>
+
+  <div id="container"> CHOOSE YOUR WEAPON</div>
+
+    <script>
+
+      const computerChoices = ['ROCK', 'PAPER', 'SCISSORS'];
+
+      function getComputerChoice() {
+        let choices = Math.floor(Math.random() * 3) + 1;
+        switch (choices) {
+          case 1:
+            return 'ROCK';
+          break;
+          case 2:
+            return 'PAPER';
+          break;
+          case 3:
+            return 'SCISSORS';
+          break;
+        }
+      }
+
+      function playRound(playerSelection,computerSelection) {
+      playerSelection = playerSelection.toUpperCase();
+      computerSelection = getComputerChoice();
+      
+      /* Creating DOM-elements */
+      const container = document.querySelector("#container");
+      const playerPara = document.createElement("p");
+      playerPara.classList.add("playerPara");
+      playerPara.textContent ="Player chooses " + playerSelection;
+      container.appendChild(playerPara);
+      const computerPara = document.createElement("p");
+      computerPara.classList.add("computerPara");
+      computerPara.textContent ="Computer chooses " + computerSelection;
+      container.appendChild(computerPara);
+
+      /* GAME-LOGIC */
+      if (playerSelection == computerSelection) {
+        resultPara.textContent = "Tie! " + "PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      }else if 
+      (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
+        playerScore++;
+        resultPara.textContent = "Player Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      }else if
+      (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
+        computerScore++;
+        resultPara.textContent = "Computer Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      }
+      else if
+      (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
+        playerScore++;
+        resultPara.textContent = "Player Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      }else if
+      (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
+        computerScore++;
+        resultPara.textContent = "Computer Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      } 
+      else if
+      (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
+        playerScore++;
+        resultPara.textContent = "Player Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      }else if
+      (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
+        computerScore++;
+        resultPara.textContent = "Computer Wins! "+"PlayerScore: " + playerScore +  " ComputerScore: " + computerScore;
+      } 
+
+      /*DETERMINE THE WINNER*/ 
+      if (playerScore === 5) {
+        resultPara.textContent = "PLAYER IS VICTORIOUS";
+      } else if (computerScore === 5){
+        resultPara.textContent = "COMPUTER IS VICTORIOUS";
+      }
+  }    
+  /* Logic for scores + the result text*/
+  let playerScore = 0;
+  let computerScore = 0;
+  
+  const resultPara = document.createElement("p");
+  resultPara.classList.add("resultPara");
+  resultPara.textContent = "Player Score: " + playerScore  + " Computer Score: " + computerScore;
+  container.appendChild(resultPara);
+
+  /* Button DOM Elements */ 
+
+      let rockButton = document.querySelector('#rock');
+      rockButton.addEventListener('click', () => {
+        playerSelection = 'rock';
+        computerSelection = getComputerChoice();
+        playRound(playerSelection,computerSelection);
+        
+      });
+      let paperButton = document.querySelector('#paper');
+      paperButton.addEventListener('click', () => {
+        playerSelection = 'paper';
+        computerSelection = getComputerChoice();
+        playRound(playerSelection,computerSelection);
+      });
+      let scissorsButton = document.querySelector('#scissors');
+      scissorsButton.addEventListener('click', () => {
+        playerSelection = 'scissors';
+        computerSelection = getComputerChoice();
+        playRound(playerSelection,computerSelection);
+      });
+      
+      // OLD version of the rock paper scissors project
+      /*
+      function playGame() {
+        playerScore = 0;
+        computerScore = 0;
+
+        for (i = 0; i < 5; i++) {
+         playerSelection = prompt('Choose your weapon: rock, paper or scissors');
+          result = playRound(playerSelection,getComputerChoice());
+
+        console.log(result);
+
+        if (result === 'Player Wins!') {
+          playerScore++;
+        } else if (result === 'Player Loses!') {
+          computerScore++;
+        }
+        console.log("Player Score:",playerScore,"Computer Score:",computerScore);
+        }
+        console.log("The final result is as follows: Player Score:", playerScore, "Computer Score:",computerScore);
+        if (playerScore == computerScore) {
+          console.log("Tie!");
+        } else if (playerScore > computerScore){
+          console.log("Player Wins!");
+        } else {
+          console.log("Computer Wins!");
+        }
+      }
+      */
+    </script>
+    
+</body>
+
+
+</html>
